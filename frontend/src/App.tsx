@@ -1,9 +1,10 @@
-import React from 'react';
+import Navbar from "./compoments/Navbar";
 
 function App() {
   return (
-    	<h1>Página Principal</h1>
+    <Navbar/>
   );
+  
 }
 
 export default App;
