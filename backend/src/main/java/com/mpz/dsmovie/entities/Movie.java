@@ -1,11 +1,14 @@
 package com.mpz.dsmovie.entities;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,13 @@ public class Movie {
 	private Double score;
 	private Integer count;
 	private String image;
+	
+	
+	//No muitos para muitos, para garantir que não vá ter dados repetidos se utiliza o set ao invés do list.
+	//No mappedBy é necessário informar o nome corretamente, nesse caso na classe Score tem um ScorePK com nome id, e no ScorePK tem a relação com o
+	//filmes(movie), dessa forma é possível acessar todas as avaliações de um certo filme a partir do objeto de filme.
+	@OneToMany(mappedBy = "id.movie")
+	private Set<Score> scores = new HashSet<>();
 	
 	public Movie() {
 	}
@@ -73,20 +83,7 @@ public class Movie {
 		this.image = image;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Movie other = (Movie) obj;
-		return Objects.equals(id, other.id);
+	public Set<Score> getScores() {
+		return scores;
 	}
 }
