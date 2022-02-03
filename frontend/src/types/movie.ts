@@ -9,8 +9,8 @@ export type Movie = {
 export type MoviePage = {
     content: Movie[];
     last: boolean;
-    totalPages: number;
     totalElements: number;
+    totalPages: number;
     size: number;
     number: number;
     first: boolean;
