@@ -10,6 +10,11 @@
 - Utilização de um banco de dados relacional.
 - Ensinar a como dar deploy nas aplicações com os sites Heroku e Netlify.
 
+<div>
+  Você pode acessar a aplicação no Netlify 
+  <a href="https://workshop-dsmovie.netlify.app/">aqui</a>!
+</div>
+
 ### Imagens do Projeto:
 
 <div align="center">
